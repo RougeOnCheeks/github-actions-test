@@ -10,8 +10,8 @@ permissions:
     owner: centos
     group: centos
     mode: 755
-#hooks:
-#  AfterInstall:
-#    - location: scripts/deploy.sh
-#      timeout: 300
-#      runas: root
+hooks:
+  AfterInstall:
+    - location: script/deploy.sh
+      timeout: 300
+      runas: root
