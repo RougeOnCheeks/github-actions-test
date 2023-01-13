@@ -7,8 +7,8 @@ files:
     overwrite: yes
 permissions:
   - object: /usr/local/lib/apache-tomcat-8.5.65
-    owner: root
-    group: root
+    owner: centos
+    group: centos
     mode: 755
 #hooks:
 #  AfterInstall:
