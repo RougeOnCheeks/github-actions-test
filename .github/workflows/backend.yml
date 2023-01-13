@@ -19,7 +19,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Build
-        run: ./gradlew bootWar
+        run: ./gradlew bootJar
         working-directory: ${{ env.working-directory }}
 
       - name: Create zip
