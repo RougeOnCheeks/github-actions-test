@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /usr/local/lib/apache-tomcat-8.5.65
+permissions:
+  - object: /usr/local/lib/apache-tomcat-8.5.65
+    owner: centos
+    group: centos
+    mode: 755
+hooks:
+  AfterInstall:
+    - location: scripts/deploy.sh
+      timeout: 300
+      runas: root
