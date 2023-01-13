@@ -28,6 +28,7 @@ public class MapTest {
         searchVO.setMinLat(36.3450084560818);
         searchVO.setMinLon(127.32964434617769);
         List<IntersectionVO> list = projectMapper.selectArea(searchVO);
+
         System.out.println(list);
     }
 
