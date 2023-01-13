@@ -4,13 +4,14 @@ os: linux
 files:
   - source: /
     destination: /usr/local/lib/apache-tomcat-8.5.65
+    overwrite: yes
 permissions:
   - object: /usr/local/lib/apache-tomcat-8.5.65
-    owner: centos
-    group: centos
+    owner: root
+    group: root
     mode: 755
-hooks:
-  AfterInstall:
-    - location: scripts/deploy.sh
-      timeout: 300
-      runas: root
+#hooks:
+#  AfterInstall:
+#    - location: scripts/deploy.sh
+#      timeout: 300
+#      runas: root
