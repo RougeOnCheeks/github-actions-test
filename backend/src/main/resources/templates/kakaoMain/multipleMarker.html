@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kakao 지도 - Multiple marker</title>
+</head>
+<style>
+    #mapwrap{position:relative;overflow:hidden;}
+    .category, .category *{margin:0;padding:0;color:#000;}
+    .category {position:absolute;overflow:hidden;top:10px;left:10px;width:150px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+    .category .menu_selected {background:#FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
+    .category li{list-style:none;float:left;width:50px;height:45px;padding-top:5px;cursor:pointer;}
+    .category .ico_comm {display:block;margin:0 auto 2px;width:22px;height:26px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png') no-repeat;}
+    .category .ico_coffee {background-position:-10px 0;}
+    .category .ico_store {background-position:-10px -36px;}
+    .category .ico_carpark {background-position:-10px -72px;}
+</style>
+<body>
+<div id="mapwrap">
+    <div id="map" style="width:100%;height:350px;"></div>
+
+    <div class="category">
+        <ul>
+            <li id="coffeeMenu" onclick="changeMarker('coffee')">
+                <span class="ico_comm ico_coffee"></span>
+                커피숍
+            </li>
+            <li id="storeMenu" onclick="changeMarker('store')">
+                <span class="ico_comm ico_store"></span>
+                편의점
+            </li>
+            <li id="carparkMenu" onclick="changeMarker('carpark')">
+                <span class="ico_comm ico_carpark"></span>
+                주차장
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--<p>-->
+<!--    <button onclick="hideMarkers()">마커 감추기</button>-->
+<!--    <button onclick="showMarkers()">마커 보이기</button>-->
+<!--</p>-->
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f6c277efa157f10bac26a42539398589&libraries=services,clusterer,drawing"></script>
+<script th:src="@{/js/kakaoMain/variousMarker.js}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kakao 지도 - 다각형에 이벤트 등록하기2</title>
+    <style>
+        .area {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #888;
+            border-radius: 3px;
+            font-size: 12px;
+            top: -5px;
+            left: 15px;
+            padding:2px;
+        }
+
+        .info {
+            font-size: 12px;
+            padding: 5px;
+        }
+        .info .title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f6c277efa157f10bac26a42539398589&libraries=services,clusterer,drawing"></script>
+<script th:src="@{/js/kakaoMain/addPolygonMouseEvent2.js}"></script>
+</body>
+</html>

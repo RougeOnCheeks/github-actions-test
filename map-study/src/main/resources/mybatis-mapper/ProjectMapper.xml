@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapstudy.mapper.ProjectMapper">
+    <select id="selectArea" resultType="com.example.mapstudy.vo.IntersectionVO" parameterType="com.example.mapstudy.vo.SearchVO">
+        SELECT
+            "INDEX",
+            TIME as time,
+            AREA_NAME as areaName,
+            AREA_LAT as areaLat,
+            AREA_LON as areaLon,
+            TRAFFIC as traffic,
+            DELAY as delay,
+            QUEUE as queue,
+            LOS as los,
+            TERRITORY as territory
+        FROM INTERSECTION_WEB
+        WHERE TERRITORY = #{territory}
+          AND AREA_LAT BETWEEN #{minLat} AND #{maxLat}
+          AND AREA_LON BETWEEN #{minLon} AND #{maxLon}
+          AND TIME BETWEEN #{startDateTime} AND #{endDateTime}
+    </select>
+</mapper>

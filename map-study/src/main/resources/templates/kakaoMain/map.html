@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kakao 지도 시작하기</title>
+
+</head>
+<body>
+    <div id="map" style="width:700px;height:500px;"></div>
+    <p>
+        <button onclick="setCenter()">지도 중심좌표 이동</button>
+        <button onclick="panTo()">지도 중심좌표 부드럽게 이동</button>
+    </p>
+
+    <p>
+        <button onclick="zoomIn()">- 1</button>
+        <button onclick="zoomOut()">+ 1</button>
+        <span id="maplevel"></span>
+    </p>
+
+    <p>
+        <span id="getInfo"></span>
+    </p>
+
+    <p>
+        <button onclick="setDraggable(false)">지도 드래그 이동 끄기</button>
+        <button onclick="setDraggable(true)">지도 드래그 이동 켜기</button>
+    </p>
+    <p>
+        <button onclick="setZoomable(false)">지도 확대/축소 끄기</button>
+        <button onclick="setZoomable(true)">지도 확대/축소 켜기</button>
+    </p>
+
+    <p>
+        <button onclick="setOverlayMapTypeId('traffic')">교통정보 보기</button>
+        <button onclick="setOverlayMapTypeId('roadview')">로드뷰 도로정보 보기</button>
+        <button onclick="setOverlayMapTypeId('terrain')">지형정보 보기</button>
+        <button onclick="setOverlayMapTypeId('use_district')">지적편집도 보기</button>
+    </p>
+
+    <p>
+        <input type="checkbox" id="chkUseDistrict" onclick="setOverlayMapTypeId2()" /> 지적편집도 정보 보기
+        <input type="checkbox" id="chkTerrain" onclick="setOverlayMapTypeId2()" /> 지형정보 보기
+        <input type="checkbox" id="chkTraffic" onclick="setOverlayMapTypeId2()" /> 교통정보 보기
+        <input type="checkbox" id="chkBicycle" onclick="setOverlayMapTypeId2()" /> 자전거도로 정보 보기
+    </p>
+
+    <p>
+        <button onclick="setBounds()">지도 범위 재설정 하기</button>
+    </p>
+
+    <p>
+        <button onclick="resizeMap()">지도 크기 바꾸기</button>
+        <button onclick="relayout()">relayout 호출하기</button>
+    </p>
+
+    <div id="clickLatlng"></div>
+
+    <p id="result"></p>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f6c277efa157f10bac26a42539398589&libraries=services,clusterer,drawing"></script>
+    <script th:src="@{/js/kakaoMain/map.js}"></script>
+</body>
+</html>
