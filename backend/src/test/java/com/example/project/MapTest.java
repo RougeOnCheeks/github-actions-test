@@ -19,6 +19,7 @@ public class MapTest {
     @Test
     public void selectArea(){
         SearchVO searchVO = new SearchVO();
+
         searchVO.setTerritory("");
         searchVO.setStartDateTime("20220705193000");
         searchVO.setEndDateTime("20220812200000");
