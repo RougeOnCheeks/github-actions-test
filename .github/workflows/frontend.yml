@@ -48,7 +48,7 @@ jobs:
 
       - name: Deploy
         run: aws deploy create-deployment
-          --application-name testApp
+          --application-name testApp-FE
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name groupName
           --s3-location bucket=clab-codedeploy,key=frontend-zip/build-frontend.zip,bundleType=zip

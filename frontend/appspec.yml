@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www
+    overwrite: yes
+permissions:
+  - object: /var/www
+    owner: centos
+    group: centos
+    mode: 755
+hooks:
+  BeforeInstall:
+    - location: scripts/backup.sh
+      timeout: 180
+      runas: root
+  AfterInstall:
+    - location: scripts/movefile.sh
+      timeout: 180
+      runas: root
