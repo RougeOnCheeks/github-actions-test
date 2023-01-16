@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: /
+  - source: map-study-0.0.1-SNAPSHOT.jar
     destination: /usr/local/lib/apache-tomcat-8.5.65
     overwrite: yes
 permissions:
