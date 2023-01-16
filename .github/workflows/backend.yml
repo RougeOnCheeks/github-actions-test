@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-      working-directory: ./backend
+      working-directory: ./backend #backend 내의 파일들 push 되면 아래 workflow 실행
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Create zip
-        run: zip -qq -r ./build-backend.zip .
+        run: zip -qq -r ./build-backend.zip ./build/libs/map-study-0.0.1-SNAPSHOT.jar
         shell: bash
         working-directory: ${{ env.working-directory }}
 
