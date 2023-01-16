@@ -23,7 +23,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Create zip
-        run: zip -qq -r ./build-backend.zip ./build/libs/map-study-0.0.1-SNAPSHOT.jar
+        run: zip -qq -r ./build-backend.zip .
         shell: bash
         working-directory: ${{ env.working-directory }}
 
