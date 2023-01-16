@@ -18,8 +18,8 @@ jobs:
         run: chmod +x ./gradlew
         working-directory: ${{ env.working-directory }}
 
-      - name: Build
-        run: ./gradlew bootJar
+      - name: Clean & Build
+        run: ./gradlew clean && ./gradlew bootJar
         working-directory: ${{ env.working-directory }}
 
       - name: Create zip

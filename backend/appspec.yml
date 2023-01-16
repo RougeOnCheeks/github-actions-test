@@ -11,7 +11,11 @@ permissions:
     group: centos
     mode: 755
 hooks:
+  BeforeInstall:
+    - location: scripts/backup.sh
+      timeout: 180
+      runas: root
   AfterInstall:
-    - location: deploy.sh
-      timeout: 300
+    - location: scripts/movefile.sh
+      timeout: 180
       runas: root
