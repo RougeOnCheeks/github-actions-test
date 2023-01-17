@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 
 files:
-  - source: /
-    destination: /var/www
-    overwrite: yes
+  - source: ./build # 인스턴스에 복사할 파일 또는 디렉터리 appspec.yml 기준 상대경로
+    destination: /var/www # 인스턴스에서 파일이 복사되어야 하는 위치
+    overwrite: yes # 동일 파일 있을경우 덮어쓰기 여부
 permissions:
   - object: /var/www
     owner: centos
