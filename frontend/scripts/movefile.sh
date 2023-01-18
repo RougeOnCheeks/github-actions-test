@@ -6,4 +6,5 @@ echo "> FE deploy"
 #sudo mv /var/www/index.html /var/www/backup/index_${TODAY}
 sudo mv /var/www/static /var/www/backup/static_test
 sudo mv /var/www/index.html /var/www/backup/index_text.html
+
 echo "> deploy start"
