@@ -1,0 +1,17 @@
+## CI/CD 실습
+- 배포 환경: EC2 - Amazon Linux (CentOS)
+- 사용 도구
+    - 빌드: Github Action
+    - 배포: AWS CodeDeploy
+- 프로젝트 구조: 모노레포 형식으로 구성 (기존 실습 프로젝트 활용)
+    - Frontend: React.js
+    - Backend: Spring Boot 
+- 프로세스 구성
+    - Github remote의 dev, prd 브랜치에 push
+    - Github Action에서 workflow 실행
+      - dependency install
+      - build
+      - S3 bucket에 업로드
+      - CodeDeploy trigger
+    - CodeDeploy에서 S3 bucket에 있는 빌드파일 다운로드
+    - CodeDeploy에서 빌드파일 EC2에 업로드
