@@ -14,11 +14,26 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Check Node version
-        run: node -v
-        working-directory: ${{ env.working-directory }}
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.18.3
+
+      # 필요시 node module cache 가능. Enterprise의 action runner 사용하는경우 cache 불가능.
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: "**/node-modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true' # node module cache 되어있는지 체크
         run: npm install --frozen-lockfile
         working-directory: ${{ env.working-directory }}
 

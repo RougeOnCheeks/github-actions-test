@@ -14,12 +14,18 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: "8"
+          distribution: "corretto"
+
       - name: gradlew 권한 부여
         run: chmod +x ./gradlew
         working-directory: ${{ env.working-directory }}
 
-      - name: Clean & Build
-        run: ./gradlew clean && ./gradlew bootJar
+      - name: Build
+        run: ./gradlew bootJar
         working-directory: ${{ env.working-directory }}
 
       - name: Create zip
